@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JAVASCRIPT FOR JS _ OOP USING ES6</title>
+    </head>
+    <body>
+     </body>
+    <script>
+        class Card{
+            constructor(){
+                this.deck = [];
+                const cardTypes=["Hearts", "Clubs", "Diamonds", "Spades"];
+                const cardValues=["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+
+                for(let type in cardTypes){
+                    for(let value in cardValues){
+                        this.deck.push(`&{cardTypes[type]}, ${cardValues[value]}`);
+                    }
+                }
+            }
+
+            shuffle(){
+                const {deck} = this;
+                let x = deck.length,i;
+
+                while(x){
+                    i = Math.floor(Math.random()*x--);
+                    [deck[x], deck[i]] = [deck[i], deck[x]];
+                }
+                return this
+            }
+
+            deal(){
+                return this.deck.pop();
+            }
+
+            reset(){
+                this.deal=[];
+                this.shuffle();
+            }
+           
+        }
+
+        const card1 = new Card();
+        console.log(card1.deck)
+        card1.shuffle();
+        console.log(card1.deck)
+        card1.deal();
+        console.log(card1.deck)
+        card1.reset();
+        console.log(card1.deck)
+
+
+       
+
+    </script>
+</html>

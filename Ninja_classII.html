@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JAVASCRIPT FOR JS _ OOP</title>
+        
+
+    </head>
+    <body>
+     </body>
+    <script>
+        function Ninja(name, health){
+            var speed = 3;
+            var strength = 3;
+
+            this.name = name;
+            this.health = 100;
+
+
+            this.getSpeed = function(){
+                return speed;
+            }
+
+            this.getStrength = function(){
+                return strength;
+            }
+
+            Ninja.prototype.sayName = function(){
+                return this;
+            }
+
+            Ninja.prototype.showStats = function(){
+                //console.log("Name: " + this.name + ", Health: " + this.health.toString() + ", Speed: " + speed.toString() + ", Strength: " + strength.toString() )
+
+                return this;
+            }
+
+            Ninja.prototype.drinkSake = function(){
+                health += this.health;
+                return this;
+            }
+
+
+            Ninja.prototype.punch = function(){
+                if(ninja instanceof Ninja){
+                    let health = 100;
+                    let damage = (strength * 15);
+                    health -= damage;
+                    console.log(ninja.name + " was kicked by " + this.name + " and lost " + health.toString() + " health");
+                   
+             }
+            else {
+                    console.log("this is a not ninja!")
+                }
+            }
+
+            this.kick = function(ninja){
+                    if(ninja instanceof Ninja){
+                        let damage = (strength * 15);
+                        console.log(ninja.name + " was kicked by " + this.name + " and lost " + damage.toString() + " health");
+                        ninja.health -= damage;
+                    }
+                    else {
+                        console.log("Not a valid ninja")
+                    }
+                }
+
+            
+        }
+        
+        var ninja = new Ninja("joanna", 200)
+        console.log(ninja);
+        ninja.sayName();
+        ninja.showStats();
+        ninja.drinkSake();
+        const blueNinja = new Ninja("Goemon");
+        const redNinja = new Ninja("Bill Gates");
+
+        redNinja.punch(blueNinja);
+        blueNinja.kick(redNinja);
+        
+       
+
+       
+    </script>
+</html>

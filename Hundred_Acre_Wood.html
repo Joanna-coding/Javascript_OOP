@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>User Languages and interests</title>
+    </head>
+    <body>
+        <h1></h1>
+        
+    </body>
+    <script>
+        var tigger = { character: "Tigger" }; // start with just the character attribute
+        var pooh = { character: "Winnie the Pooh" };
+        tigger.north = pooh; // add more attributes, where we are actually storing the memory location for the other object
+        pooh.south = tigger;
+            
+        var piglet = { character: "Piglet"};        // create Piglet's home object with just the character attribute
+        console.log(piglet)
+        piglet.east = tigger.north;          // Piglet's east attribute is Tigger's north attribute, which is a memory address
+        console.log(piglet.east)
+        tigger.north.west = piglet;          // Follow Tigger's north attribute to a location in memory
+                                            // Assign that object's west attribute to piglet
+    </script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JAVASCRIPT FOR JS _ OOP USING ES6</title>
+    </head>
+    <body>
+     </body>
+    <script>
+        class Ninja{
+            constructor(name, health, speed, strength){
+                this.name = name;
+                this.health = 100;
+                this.speed = 3;
+                this.strength = 3;
+            }
+            sayName(){
+                console.log('Name: ${this.name}');
+                
+            }
+
+            showStats(){
+                console.log('Name: ${this._name}, Health: ${this._health}, Speed: ${this._speed}, Strength: ${this._strength}');
+            }
+            drinkSake(){
+                this.health += 10;
+                return this;
+            }
+
+            // parentFunction(){
+            //     return "this is come from the Ninja!"
+            // }
+
+        }
+
+        class Sensei extends Ninja(){
+            constructor(name){
+                super(name);
+                this.name = name;
+                this.health += 100;
+                this.speed += 7;
+                this.strength += 7;
+                this.wisdom = 10;
+               
+            }
+            // childFunction(){
+            //     const message = super.parentFunction();
+            //     console.log(message);
+            // }
+
+            speakWisdom(){
+                super.drink();
+                console.log("this is speakWidon")
+            }
+        }
+
+        const ninja = new Ninja('joanna');
+        ninja.sayName();
+        ninja.showStats();
+        ninja.drinkSake();
+
+        const circle = new Sensei("seisei")
+        circle.speakWisdom();
+        circle.showStats();
+
+    </script>
+</html>
